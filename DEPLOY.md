@@ -23,3 +23,5 @@ Workflow запускается при push изменений сайта в mai
 
 GitHub Pages используется как учебная демонстрационная витрина без сделок, заявок и обработки данных, с учётом https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits .
 Workflow основан на https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages .
+
+Последний подтверждённый workflow: 42970625121, build/deploy success. В CI теперь также выполняется python3 -m unittest discover -s scripts -p 'test_*.py'. Актуальный опубликованный коммит и проверенные технически адреса — PORTFOLIO_LINKS.md.

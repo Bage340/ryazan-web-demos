@@ -44,3 +44,5 @@
 - Final review: PASS with nonblocking notes; HTTP 204 helper issue fixed with RED/GREEN unittest. Local/public browser 28 combinations and 330 checks each pass; source/dist match.
 - Published via saved Git credential, no browser settings changes: Bage340/ryazan-web-demos, site commit f0899f4f294388ac6de9306e2a334525881054dc, Actions 42970107538 success. All 20 public files match, four HTTPS URLs 200. Human acceptance/Russian ISP pending separately.
 - Private working MASTER PLAN updated in private/; attached originals and research history preserved, not published.
+
+- Final CI includes helper regression unittest; run42970625121 / commit0eda777f0507502817a94d43b5d79716f3afe1e2 succeeded. Public20files and4URL responses reverified after it, website bytes unchanged.
