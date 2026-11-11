@@ -8,3 +8,15 @@
 - Локальный QA после исправлений: 7/7 статических страниц, 28 браузерных сочетаний, 330 проверок, 0 ошибок.
 - Статус: LOCAL_QA_PASS / DEPLOY_IN_PROGRESS. Реальный репозиторий, workflow и URL будут добавлены только после выполнения.
 - RU_ACCESS_VERIFIED: нет. Не проверено на российском провайдере без VPN.
+
+## Завершённая публикация — 11.11.2026
+- Создан новый публичный репозиторий https://github.com/Bage340/ryazan-web-demos . Существующие репозитории не переиспользовались и не изменялись.
+- В main отправлен коммит f0899f4f294388ac6de9306e2a334525881054dc. Force-push не использовался.
+- Pages API: build_type=workflow, https_enforced=true, html_url=https://bage340.github.io/ryazan-web-demos/ .
+- Workflow ID 42970107538: completed / success. URL: https://github.com/Bage340/ryazan-web-demos/actions/runs/42970107538 .
+- Публикация содержит только portfolio-dist/; исходники, документы, вложения и внутренний MASTER PLAN в Pages не попали.
+- python scripts/verify_public.py: 20 файлов побайтово совпадают с локальной сборкой, все 4 адреса HTTP 200. Все 7 HTML-страниц и связанные CSS/JS/SVG фактически загружены.
+- Публичный Playwright CLI / Chrome: 28 сочетаний страница/ширина, 330 проверок PASS, 0 ошибок, без внешних запросов и отправки данных. Артефакты: qa/public-browser-results.json, qa/public-assets.json, qa/screenshots/public-*.png (локально).
+- Независимое финальное ревью: блокирующих проблем нет. Неблокирующий дефект обработки HTTP 204 при переключении ранее существующей legacy Pages-конфигурации исправлен: после PUT повторно GET; отдельный mock-регрессионный тест прошёл RED → GREEN. На первую публикацию нового репозитория дефект не влиял.
+- Итог: **PUBLIC_TECHNICAL_PASS / OWNER_ACCEPTANCE_PENDING / RU_ACCESS_NOT_VERIFIED**. Четыре фактических URL записаны в PORTFOLIO_LINKS.md.
+- Проверка пользователя на физических устройствах и российском провайдере без VPN не подменяется автоматическим QA; шаги в MANUAL_ACTIONS.md.

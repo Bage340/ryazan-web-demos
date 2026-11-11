@@ -10,6 +10,8 @@ on:
       - 'portfolio-dist/**'
       - 'scripts/build.py'
       - 'scripts/validate.py'
+      - 'scripts/github_admin.py'
+      - 'scripts/test_github_admin.py'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -31,6 +33,7 @@ jobs:
         run: |
           python3 scripts/build.py
           python3 scripts/validate.py
+          python3 -m unittest discover -s scripts -p 'test_*.py'
           node --check shared/ui.js
           git diff --exit-code -- portfolio-dist
       - name: Configure GitHub Pages

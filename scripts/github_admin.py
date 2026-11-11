@@ -95,7 +95,8 @@ def main():
                 raise
             pages = api(token, target + "/pages", "POST", {"build_type": "workflow"})
         if pages.get("build_type") != "workflow":
-            pages = api(token, target + "/pages", "PUT", {"build_type": "workflow"})
+            api(token, target + "/pages", "PUT", {"build_type": "workflow"})
+            pages = api(token, target + "/pages")
         state["pages_url"] = pages.get("html_url")
         save_state(state)
         print(json.dumps({"build_type": pages.get("build_type"), "pages_url": pages.get("html_url"), "status": pages.get("status")}))
