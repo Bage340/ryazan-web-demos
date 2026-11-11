@@ -1,0 +1,54 @@
+name: Deploy demo portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'demo-*/**'
+      - 'portfolio-src/**'
+      - 'shared/**'
+      - 'portfolio-dist/**'
+      - 'scripts/build.py'
+      - 'scripts/validate.py'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Package and validate all seven pages
+        run: |
+          python3 scripts/build.py
+          python3 scripts/validate.py
+          node --check shared/ui.js
+          git diff --exit-code -- portfolio-dist
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload only the publishable directory
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: portfolio-dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish GitHub Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

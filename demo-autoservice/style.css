@@ -1,0 +1,51 @@
+:root { color-scheme: dark; --paper: #171e20; --ink: #f1f3eb; --muted: #b6c1bd; --line: #46514f; --surface: #20292b; --accent: #cae973; --on-accent: #172018; --focus: #f7b45b; }
+.demo-notice { background: #cae973; color: #172018; }
+.auto-header { border-bottom: 1px solid var(--line); }
+.brand { text-transform: uppercase; letter-spacing: -.07em; font-size: 25px; }
+.brand-mark { color: var(--paper); border-radius: 4px; transform: skew(-8deg); font-size: 21px; }
+.auto-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 25px; padding-block: 50px 40px; }
+.auto-hero h1 { font-size: clamp(3.1rem, 6.3vw, 6.2rem); font-weight: 700; line-height: .98; }
+.auto-hero h1 span { color: var(--accent); }
+.auto-hero figure { margin: 0; }
+.auto-hero img { width: 100%; }
+.auto-hero .lead { max-width: 450px; }
+.hero-spec { font-family: 'Courier New', monospace; text-transform: uppercase; font-size: 12px; padding-top: 28px; margin-top: 30px; border-top: 1px solid var(--line); display: flex; gap: 22px; }
+.auto-band { background: var(--accent); color: var(--on-accent); display: flex; justify-content: space-between; gap: 20px; padding: 25px 32px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+.auto-band span::before { content: '↗'; margin-right: 16px; }
+.auto-services { border-bottom: 1px solid var(--line); }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.filters button { border: 1px solid var(--line); padding: 10px 22px; background: transparent; border-radius: 30px; }
+.filters button[aria-pressed=true] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.filter-status { font-size: 13px; color: var(--muted); margin-bottom: 28px; min-height: 22px; }
+.auto-services .card { background: transparent; border-radius: 6px; padding: 32px; }
+.auto-services .number { color: var(--accent); }
+.auto-services .card h3 { min-height: 2.2em; }
+.auto-services .card p { font-size: 14px; }
+.auto-services .card button { margin-top: 28px; background: transparent; color: var(--accent); border: none; padding: 4px 0; font-size: 14px; text-decoration: underline; text-underline-offset: 5px; }
+.auto-process { list-style: none; padding: 0; }
+.auto-process li { border-top: 1px solid var(--line); padding-top: 24px; }
+.auto-process .number { font-size: 32px; color: var(--accent); font-weight: 700; margin-bottom: 28px; }
+.auto-process p { color: var(--muted); font-size: 14px; }
+.auto-example { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; background: var(--surface); padding: 50px; margin-top: 64px; }
+.auto-example figure { margin: 0; }
+.auto-example img { width: 100%; }
+.benefit-list { padding: 0; list-style: none; display: grid; gap: 18px; }
+.benefit-list li { border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+.benefit-list strong { display: block; color: var(--accent); margin-bottom: 8px; }
+.benefit-list p { margin: 0; font-size: 14px; color: var(--muted); }
+.auto-contact { background: var(--accent); color: var(--on-accent); border-radius: 6px; }
+.auto-contact .button { background: #172018; color: #f1f3eb; border-color: #172018; }
+.mobile-book { display: none; }
+@media (max-width: 1000px) { .auto-example { gap: 30px; padding: 30px; } .auto-hero h1 { font-size: 5.2vw; } }
+@media (max-width: 760px) {
+  body { padding-bottom: 80px; }
+  .auto-hero { grid-template-columns: 1fr; gap: 24px; padding-block: 30px 35px; }
+  .auto-hero h1 { font-size: clamp(3.1rem, 11vw, 4.7rem); }
+  .auto-hero figure { max-width: 540px; }
+  .hero-spec { flex-wrap: wrap; gap: 6px 20px; }
+  .auto-band { flex-direction: column; gap: 12px; padding: 24px; }
+  .auto-example { grid-template-columns: 1fr; padding: 24px; gap: 30px; }
+  .auto-services .card h3 { min-height: auto; }
+  .mobile-book { position: fixed; display: block; z-index: 25; bottom: 0; left: 0; width: 100%; padding: 12px 18px calc(12px + env(safe-area-inset-bottom)); background: var(--paper); border-top: 1px solid var(--line); }
+  .mobile-book button { width: 100%; }
+}

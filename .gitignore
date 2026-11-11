@@ -1,0 +1,17 @@
+.codex-remote-attachments/
+.playwright-cli/
+qa/screenshots/
+qa/browser-results.json
+qa/*.log
+__pycache__/
+*.pyc
+.env
+.env.*
+node_modules/
+*.zip
+private/
+qa/diagnose.log
+qa/aislop.json
+qa/deploy-state.json
+qa/*.json
+qa/*.js
